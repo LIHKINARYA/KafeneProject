@@ -1,0 +1,37 @@
+body{
+    margin:0;
+}
+
+.fab{
+    padding:5px;
+}
+
+.filter{
+    padding-left: 20px;
+    width:180px;
+}
+
+.table{
+    width: 100%;
+    align-content: center;
+}
+
+.tr{
+    text-align: left;
+    padding: 12px 24px;
+    font-size: 14px;
+}
+
+.active{
+    border-bottom: solid 5px rgb;
+}
+
+#content{
+    box-sizing: border-box;
+    padding: 0 8% 4%;
+}
+
+#tbody tr{
+    vertical-align: middle;
+    padding: 12px 20px;
+}

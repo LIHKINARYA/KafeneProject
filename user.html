@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+  <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-2 mb-5 bg-body rounded">
+        <div class="container-fluid">
+          <i class="fab fa-korvue fa-3x"></i>
+          <a class="navbar-brand" href="#">Kafene</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="index.html">Orders</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="product.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="user.html" >Users</a>
+              </li>
+            </ul>
+            <div class="d-flex">
+              <button class="btn btn-outline-success" type="submit">Logout</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!--content-->
+
+      <section id="content">
+        <h1 class="m-4">Users</h1>
+
+        <div class="m-4"> 
+            <form class="d-flex">
+            <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-dark" type="button" id="button1">Reset</button>
+          </form></div>
+
+          </div>
+          <div class="table" >
+            <table class="table" id="tabWrap">
+              <thead id="tabHead">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">UserAvatar</th>
+                  <th scope="col">FullName</th>
+                  <th scope="col">DOB</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Current Location</th>
+                </tr>
+              </thead>
+              <tbody id="tbody" class="tabCont">
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="user.js"></script>
+</body>
+</html>
