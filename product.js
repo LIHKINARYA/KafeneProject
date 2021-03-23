@@ -47,68 +47,82 @@ getData();
 const expired = document.getElementById("exp");
 const lowStock = document.getElementById("lowS");
 
-expired.addEventListener("click", function () {
-    if (!delivered.checked) {
-      let tBody = document.querySelector("tbody");
-      let tr = tBody.getElementsByTagName("tr");
-      for (let i = 0; i < tr.length; i++) {
-        var td = tr[i].getElementsByTagName("td")[4];
-        if (td) {
-          let textContent = td.textContent;
-          if (textContent === "expired") {
-            tr[i].style.display = "none";
-            count--;
-          }
-        }
-      }
-      counter.textContent = "Count:" + count;
-    }
-    if (delivered.checked) {
-      let tBody = document.querySelector("tbody");
-      let tr = tBody.getElementsByTagName("tr");
-      for (let i = 0; i < tr.length; i++) {
-        var td = tr[i].getElementsByTagName("td")[4];
-        if (td) {
-          let textContent = td.textContent;
-          if (textContent === "expired") {
-            tr[i].style.display = "";
-            count++;
-          }
-        }
-      }
-      counter.textContent = "Count:" + count;
-    }
-  });
+let today = new Date();
 
-  lowStock.addEventListener("click", function () {
-    if (!delivered.checked) {
-      let tBody = document.querySelector("tbody");
-      let tr = tBody.getElementsByTagName("tr");
-      for (let i = 0; i < tr.length; i++) {
-        var td = tr[i].getElementsByTagName("td")[4];
-        if (td) {
-          let textContent = td.textContent;
-          if (textContent === "Delivered") {
-            tr[i].style.display = "none";
-            count--;
-          }
+
+
+let count = 100;
+expired.addEventListener("click", function () {
+  if (!expired.checked) {
+    let tBody = document.querySelector("tbody");
+    let tr = tBody.getElementsByTagName("tr");
+    for (let i = 0; i < tr.length; i++) {
+      let td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        let tdVal = td.textContent;
+        let date = tdVal.split("-");
+        if (date[2] < "2021") {
+          tr[i].style.display = "none";
+          count--;
         }
       }
-      counter.textContent = "Count:" + count;
     }
-    if (delivered.checked) {
-      let tBody = document.querySelector("tbody");
-      let tr = tBody.getElementsByTagName("tr");
-      for (let i = 0; i < tr.length; i++) {
-        var td = tr[i].getElementsByTagName("td")[4];
-        if (td) {
-          let textContent = td.textContent;
-          if (textContent === "Delivered") {
-            tr[i].style.display = "";
-            count++;
-          }
+    countTracker.textContent = "Count:" + count;
+  }
+  if (expired.checked) {
+    let tBody = document.querySelector("tbody");
+    let tr = tBody.getElementsByTagName("tr");
+    for (let i = 0; i < tr.length; i++) {
+      let td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        let tdVal = td.textContent;
+        let date = tdVal.split("-");
+        if (date[2] < "2021") {
+          tr[i].style.display = "";
+          count++;
         }
       }
-      counter.textContent = "Count:" + count;
     }
-  });
+    countTracker.textContent = "Count:" + count;
+  }
+});
+
+lowStock.addEventListener("click", function () {
+  if (!lowStock.checked) {
+    let tBody = document.querySelector("tbody");
+    let tr = tBody.getElementsByTagName("tr");
+    for (let i = 0; i < tr.length; i++) {
+      var td = tr[i].getElementsByTagName("td")[5];
+      if (td) {
+        let tdVal = Number(td.textContent);
+
+        if (tdVal < 100) {
+          tr[i].style.display = "none";
+          count--;
+        }
+      }
+    }
+    countTracker.textContent = "Count:" + count;
+  }
+  if (lowStock.checked) {
+    let tBody = document.querySelector("tbody");
+    let tr = tBody.getElementsByTagName("tr");
+    for (let i = 0; i < tr.length; i++) {
+      var td = tr[i].getElementsByTagName("td")[5];
+      if (td) {
+        let tdVal = Number(td.textContent);
+        if (tdVal < 100) {
+          tr[i].style.display = "";
+
+          count++;
+        }
+      }
+    }
+    countTracker.textContent = "Count:" + count;
+  }
+});
+
+logout.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.location.replace("../login.html");
+});
