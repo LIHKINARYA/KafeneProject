@@ -28,6 +28,9 @@ const getData = (e) => {
             tr.appendChild(td5);
             tr.appendChild(td6);
 
+            td3.className = "name";
+            tr.className = "cont";
+
             tbody.appendChild(tr);
             td1.textContent = res.data[i].id;
             img1.src = res.data[i].profilePic;
@@ -50,28 +53,24 @@ const sUrl = "https://5fc1a1c9cb4d020016fe6b07.mockapi.io/api/v1/users?fullName=
 const tr1 = document.getElementsByTagName("tr");
 
 
-const sch =  function () {
-        var value = this.value.toLowerCase();
-        console.log(tr1);
-            for(i=0;i<101;i++){
-                tr1[i].style.display = "none";
-            }
-        
-        
-        getData(sUrl + value);
-};
-
-sear.addEventListener("keyup", function(event) {
-    event.preventDefault();
-
-    if (event.key === 'Enter'){
-        sch();
-       
-
+sear.addEventListener("keyup", async function () {
+    let value = this.value.toLowerCase();
+    let td = document.querySelectorAll(".name");
+    let tr = document.querySelectorAll(".cont");
+    for (let i = 0; i < tr.length; i++) {
+      if (td) {
+        let textValue = td[i].textContent;
+        if (
+          textValue.toLowerCase().includes(value.toLowerCase())
+        ) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
     }
-});
+  });
 
-const but = document.getElementById("button1")
 
-but.addEventListener("click", getData(url));
+
 window.onload = function () { getData(url)};
